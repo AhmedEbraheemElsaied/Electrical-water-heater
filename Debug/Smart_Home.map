@@ -13,7 +13,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
                               CFG/DIO_Cfg.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                              MCAL/ADC.o (__do_clear_bss)
+                              main.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
                               HAl/LCD.o (__umulhisi3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
@@ -46,22 +46,10 @@ Discarded input sections
  .text          0x00000000        0x0 HAl/KeyPad.o
  .data          0x00000000        0x0 HAl/KeyPad.o
  .bss           0x00000000        0x0 HAl/KeyPad.o
- .text.KEYPAD_Init
-                0x00000000       0x1a HAl/KeyPad.o
  .text.KEYPAD_GetKey
                 0x00000000       0x8e HAl/KeyPad.o
  .rodata.KeysArr
                 0x00000000       0x10 HAl/KeyPad.o
- .debug_info    0x00000000      0x362 HAl/KeyPad.o
- .debug_abbrev  0x00000000      0x174 HAl/KeyPad.o
- .debug_loc     0x00000000      0x190 HAl/KeyPad.o
- .debug_aranges
-                0x00000000       0x28 HAl/KeyPad.o
- .debug_ranges  0x00000000       0x18 HAl/KeyPad.o
- .debug_line    0x00000000      0x205 HAl/KeyPad.o
- .debug_str     0x00000000      0x2ca HAl/KeyPad.o
- .comment       0x00000000       0x31 HAl/KeyPad.o
- .debug_frame   0x00000000       0x58 HAl/KeyPad.o
  .text          0x00000000        0x0 HAl/LCD.o
  .data          0x00000000        0x0 HAl/LCD.o
  .bss           0x00000000        0x0 HAl/LCD.o
@@ -138,8 +126,9 @@ Discarded input sections
                 0x00000000       0x66 MCAL/DIO.o
  .text.DIO_WritePort
                 0x00000000       0x20 MCAL/DIO.o
- .text.DIO_TogglePin
-                0x00000000       0x82 MCAL/DIO.o
+ .text          0x00000000        0x0 MCAL/EEPROM.o
+ .data          0x00000000        0x0 MCAL/EEPROM.o
+ .bss           0x00000000        0x0 MCAL/EEPROM.o
  .text          0x00000000        0x0 MCAL/EX_Interrupt.o
  .data          0x00000000        0x0 MCAL/EX_Interrupt.o
  .bss           0x00000000        0x0 MCAL/EX_Interrupt.o
@@ -177,8 +166,6 @@ Discarded input sections
                 0x00000000        0x8 MCAL/Timers.o
  .text.TIMER0_OC_InterruptDisable
                 0x00000000        0x8 MCAL/Timers.o
- .text.Timer1_Init
-                0x00000000       0xa8 MCAL/Timers.o
  .text.Timer1_OCRA1Mode
                 0x00000000       0x48 MCAL/Timers.o
  .text.Timer1_OCRB1Mode
@@ -188,8 +175,6 @@ Discarded input sections
  .text.Timer1_ICU_InterruptEnable
                 0x00000000        0x8 MCAL/Timers.o
  .text.Timer1_ICU_InterruptDisable
-                0x00000000        0x8 MCAL/Timers.o
- .text.Timer1_OVF_InterruptEnable
                 0x00000000        0x8 MCAL/Timers.o
  .text.Timer1_OVF_InterruptDisable
                 0x00000000        0x8 MCAL/Timers.o
@@ -201,8 +186,6 @@ Discarded input sections
                 0x00000000        0x8 MCAL/Timers.o
  .text.Timer1_OCB_InterruptDisable
                 0x00000000        0x8 MCAL/Timers.o
- .text.Timer1_OVF_SetCallBack
-                0x00000000        0xa MCAL/Timers.o
  .text.Timer1_OCA_SetCallBack
                 0x00000000        0xa MCAL/Timers.o
  .text.Timer1_OCB_SetCallBack
@@ -212,8 +195,6 @@ Discarded input sections
  .text          0x00000000        0x0 MCAL/UART.o
  .data          0x00000000        0x0 MCAL/UART.o
  .bss           0x00000000        0x0 MCAL/UART.o
- .text.UART_Init
-                0x00000000       0x18 MCAL/UART.o
  .text.UART_Send
                 0x00000000        0x8 MCAL/UART.o
  .text.UART_SendNoBlock
@@ -476,6 +457,7 @@ LOAD HAl/Sensors.o
 LOAD main.o
 LOAD MCAL/ADC.o
 LOAD MCAL/DIO.o
+LOAD MCAL/EEPROM.o
 LOAD MCAL/EX_Interrupt.o
 LOAD MCAL/SPI.o
 LOAD MCAL/Timers.o
@@ -591,7 +573,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xd1c
+.text           0x00000000      0xf6e
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -664,112 +646,139 @@ END GROUP
                 0x0000008e                __vector_20
                 0x00000092                . = ALIGN (0x2)
  *(.text.*)
+ .text.KEYPAD_Init
+                0x00000092       0x1a HAl/KeyPad.o
+                0x00000092                KEYPAD_Init
  .text.WriteData
-                0x00000092       0xc0 HAl/LCD.o
+                0x000000ac       0xc0 HAl/LCD.o
  .text.WriteIns
-                0x00000152       0xc0 HAl/LCD.o
-                0x00000152                WriteIns
+                0x0000016c       0xc0 HAl/LCD.o
+                0x0000016c                WriteIns
  .text.LCD_Init
-                0x00000212       0x3e HAl/LCD.o
-                0x00000212                LCD_Init
+                0x0000022c       0x3e HAl/LCD.o
+                0x0000022c                LCD_Init
  .text.LCD_GoTo
-                0x00000250       0x1c HAl/LCD.o
-                0x00000250                LCD_GoTo
+                0x0000026a       0x1c HAl/LCD.o
+                0x0000026a                LCD_GoTo
  .text.LCD_WriteChar
-                0x0000026c        0x6 HAl/LCD.o
-                0x0000026c                LCD_WriteChar
+                0x00000286        0x6 HAl/LCD.o
+                0x00000286                LCD_WriteChar
  .text.LCD_WriteString
-                0x00000272       0x26 HAl/LCD.o
-                0x00000272                LCD_WriteString
+                0x0000028c       0x26 HAl/LCD.o
+                0x0000028c                LCD_WriteString
  .text.LCD_WriteNumber
-                0x00000298       0xc6 HAl/LCD.o
-                0x00000298                LCD_WriteNumber
+                0x000002b2       0xc6 HAl/LCD.o
+                0x000002b2                LCD_WriteNumber
  .text.TEMP_Read
-                0x0000035e       0x1e HAl/Sensors.o
-                0x0000035e                TEMP_Read
+                0x00000378       0x1e HAl/Sensors.o
+                0x00000378                TEMP_Read
+ .text.ON_OFF   0x00000396        0xc main.o
+                0x00000396                ON_OFF
  .text.Increase_Temp
-                0x0000037c       0x26 main.o
-                0x0000037c                Increase_Temp
+                0x000003a2       0x30 main.o
+                0x000003a2                Increase_Temp
  .text.decrease_Temp
-                0x000003a2       0x24 main.o
-                0x000003a2                decrease_Temp
- .text.ON_OFF   0x000003c6        0xc main.o
-                0x000003c6                ON_OFF
- .text.main     0x000003d2       0xf6 main.o
-                0x000003d2                main
+                0x000003d2       0x30 main.o
+                0x000003d2                decrease_Temp
+ .text.Sensor_Read
+                0x00000402       0x2e main.o
+                0x00000402                Sensor_Read
+ .text.main     0x00000430      0x16c main.o
+                0x00000430                main
  .text.ADC_Init
-                0x000004c8       0x4a MCAL/ADC.o
-                0x000004c8                ADC_Init
+                0x0000059c       0x4a MCAL/ADC.o
+                0x0000059c                ADC_Init
  .text.ADC_Read
-                0x00000512       0x1c MCAL/ADC.o
-                0x00000512                ADC_Read
+                0x000005e6       0x1c MCAL/ADC.o
+                0x000005e6                ADC_Read
  .text.ADC_VoltRead
-                0x0000052e       0x1e MCAL/ADC.o
-                0x0000052e                ADC_VoltRead
+                0x00000602       0x1e MCAL/ADC.o
+                0x00000602                ADC_VoltRead
  .text.DIO_InitPin
-                0x0000054c      0x1fa MCAL/DIO.o
+                0x00000620      0x1fa MCAL/DIO.o
  .text.DIO_Init
-                0x00000746       0x20 MCAL/DIO.o
-                0x00000746                DIO_Init
+                0x0000081a       0x20 MCAL/DIO.o
+                0x0000081a                DIO_Init
  .text.DIO_WritePin
-                0x00000766      0x106 MCAL/DIO.o
-                0x00000766                DIO_WritePin
+                0x0000083a      0x106 MCAL/DIO.o
+                0x0000083a                DIO_WritePin
+ .text.DIO_TogglePin
+                0x00000940       0x82 MCAL/DIO.o
+                0x00000940                DIO_TogglePin
+ .text.EEPROM_write
+                0x000009c2       0x18 MCAL/EEPROM.o
+                0x000009c2                EEPROM_write
+ .text.EEPROM_read
+                0x000009da       0x12 MCAL/EEPROM.o
+                0x000009da                EEPROM_read
  .text.EXI_Enable
-                0x0000086c       0x24 MCAL/EX_Interrupt.o
-                0x0000086c                EXI_Enable
+                0x000009ec       0x24 MCAL/EX_Interrupt.o
+                0x000009ec                EXI_Enable
  .text.EXI_TriggerEdge
-                0x00000890       0xc0 MCAL/EX_Interrupt.o
-                0x00000890                EXI_TriggerEdge
+                0x00000a10       0xc0 MCAL/EX_Interrupt.o
+                0x00000a10                EXI_TriggerEdge
  .text.EXI_Init
-                0x00000950       0x1a MCAL/EX_Interrupt.o
-                0x00000950                EXI_Init
+                0x00000ad0       0x1a MCAL/EX_Interrupt.o
+                0x00000ad0                EXI_Init
  .text.EXI_SetCallBack
-                0x0000096a       0x2a MCAL/EX_Interrupt.o
-                0x0000096a                EXI_SetCallBack
+                0x00000aea       0x2a MCAL/EX_Interrupt.o
+                0x00000aea                EXI_SetCallBack
  .text.__vector_1
-                0x00000994       0x52 MCAL/EX_Interrupt.o
-                0x00000994                __vector_1
+                0x00000b14       0x52 MCAL/EX_Interrupt.o
+                0x00000b14                __vector_1
  .text.__vector_2
-                0x000009e6       0x54 MCAL/EX_Interrupt.o
-                0x000009e6                __vector_2
+                0x00000b66       0x54 MCAL/EX_Interrupt.o
+                0x00000b66                __vector_2
  .text.__vector_3
-                0x00000a3a       0x52 MCAL/EX_Interrupt.o
-                0x00000a3a                __vector_3
+                0x00000bba       0x52 MCAL/EX_Interrupt.o
+                0x00000bba                __vector_3
+ .text.Timer1_Init
+                0x00000c0c       0xa8 MCAL/Timers.o
+                0x00000c0c                Timer1_Init
+ .text.Timer1_OVF_InterruptEnable
+                0x00000cb4        0x8 MCAL/Timers.o
+                0x00000cb4                Timer1_OVF_InterruptEnable
+ .text.Timer1_OVF_SetCallBack
+                0x00000cbc        0xa MCAL/Timers.o
+                0x00000cbc                Timer1_OVF_SetCallBack
  .text.__vector_9
-                0x00000a8c       0x52 MCAL/Timers.o
-                0x00000a8c                __vector_9
+                0x00000cc6       0x52 MCAL/Timers.o
+                0x00000cc6                __vector_9
  .text.__vector_7
-                0x00000ade       0x52 MCAL/Timers.o
-                0x00000ade                __vector_7
+                0x00000d18       0x52 MCAL/Timers.o
+                0x00000d18                __vector_7
  .text.__vector_8
-                0x00000b30       0x52 MCAL/Timers.o
-                0x00000b30                __vector_8
+                0x00000d6a       0x52 MCAL/Timers.o
+                0x00000d6a                __vector_8
  .text.__vector_6
-                0x00000b82       0x52 MCAL/Timers.o
-                0x00000b82                __vector_6
+                0x00000dbc       0x52 MCAL/Timers.o
+                0x00000dbc                __vector_6
+ .text.UART_Init
+                0x00000e0e       0x18 MCAL/UART.o
+                0x00000e0e                UART_Init
  .text.__vector_13
-                0x00000bd4       0x52 MCAL/UART.o
-                0x00000bd4                __vector_13
+                0x00000e26       0x52 MCAL/UART.o
+                0x00000e26                __vector_13
  .text.__vector_15
-                0x00000c26       0x52 MCAL/UART.o
-                0x00000c26                __vector_15
+                0x00000e78       0x52 MCAL/UART.o
+                0x00000e78                __vector_15
  .text.libgcc.div
-                0x00000c78       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000c78                __udivmodsi4
+                0x00000eca       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000eca                __udivmodsi4
  .text.libgcc.div
-                0x00000cbc       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
-                0x00000cbc                __divmodsi4
+                0x00000f0e       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
+                0x00000f0e                __divmodsi4
  .text.libgcc.div
-                0x00000cea       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
-                0x00000cea                __negsi2
+                0x00000f3c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
+                0x00000f3c                __negsi2
  .text.libgcc.mul
-                0x00000cfa       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00000cfa                __umulhisi3
-                0x00000d18                . = ALIGN (0x2)
+                0x00000f4c       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000f4c                __umulhisi3
+                0x00000f6a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000d18        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000d18                _exit
-                0x00000d18                exit
+ .fini9         0x00000f6a        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000f6a                _exit
+                0x00000f6a                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -788,64 +797,68 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000d18        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000f6a        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000d1c                _etext = .
+                0x00000f6e                _etext = .
 
-.data           0x00800060       0x3a load address 0x00000d1c
+.data           0x00800060       0x3a load address 0x00000f6e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  .data.flag     0x00800060        0x1 main.o
                 0x00800060                flag
  .data.desired_temp
-                0x00800061        0x2 main.o
+                0x00800061        0x1 main.o
                 0x00800061                desired_temp
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.DIO_PinsStatusArr
-                0x00800063       0x20 CFG/DIO_Cfg.o
-                0x00800063                DIO_PinsStatusArr
+                0x00800062       0x20 CFG/DIO_Cfg.o
+                0x00800062                DIO_PinsStatusArr
  .rodata.str1.1
-                0x00800083       0x17 main.o
+                0x00800082       0x17 main.o
  *(.gnu.linkonce.r*)
                 0x0080009a                . = ALIGN (0x2)
+ *fill*         0x00800099        0x1 
                 0x0080009a                _edata = .
                 0x0080009a                PROVIDE (__data_end, .)
 
-.bss            0x0080009a       0x12
+.bss            0x0080009a       0x15
                 0x0080009a                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.c.2121    0x0080009a        0x1 main.o
+ .bss.temp      0x0080009b        0x2 main.o
+                0x0080009b                temp
  .bss.INT2_Fptr
-                0x0080009a        0x2 MCAL/EX_Interrupt.o
+                0x0080009d        0x2 MCAL/EX_Interrupt.o
  .bss.INT1_Fptr
-                0x0080009c        0x2 MCAL/EX_Interrupt.o
+                0x0080009f        0x2 MCAL/EX_Interrupt.o
  .bss.INT0_Fptr
-                0x0080009e        0x2 MCAL/EX_Interrupt.o
+                0x008000a1        0x2 MCAL/EX_Interrupt.o
  .bss.Timer1_ICU_Fptr
-                0x008000a0        0x2 MCAL/Timers.o
+                0x008000a3        0x2 MCAL/Timers.o
  .bss.Timer1_OCB_Fptr
-                0x008000a2        0x2 MCAL/Timers.o
+                0x008000a5        0x2 MCAL/Timers.o
  .bss.Timer1_OCA_Fptr
-                0x008000a4        0x2 MCAL/Timers.o
+                0x008000a7        0x2 MCAL/Timers.o
  .bss.Timer1_OVF_Fptr
-                0x008000a6        0x2 MCAL/Timers.o
+                0x008000a9        0x2 MCAL/Timers.o
  .bss.UART_TX_Fptr
-                0x008000a8        0x2 MCAL/UART.o
+                0x008000ab        0x2 MCAL/UART.o
  .bss.UART_RX_Fptr
-                0x008000aa        0x2 MCAL/UART.o
+                0x008000ad        0x2 MCAL/UART.o
  *(COMMON)
-                0x008000ac                PROVIDE (__bss_end, .)
-                0x00000d1c                __data_load_start = LOADADDR (.data)
-                0x00000d56                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008000af                PROVIDE (__bss_end, .)
+                0x00000f6e                __data_load_start = LOADADDR (.data)
+                0x00000fa8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008000ac        0x0
+.noinit         0x008000af        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008000ac                _end = .
+                0x008000af                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -889,11 +902,13 @@ END GROUP
  *(.comment)
  .comment       0x00000000       0x30 CFG/DIO_Cfg.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 HAl/KeyPad.o
  .comment       0x00000030       0x31 HAl/LCD.o
  .comment       0x00000030       0x31 HAl/Sensors.o
  .comment       0x00000030       0x31 main.o
  .comment       0x00000030       0x31 MCAL/ADC.o
  .comment       0x00000030       0x31 MCAL/DIO.o
+ .comment       0x00000030       0x31 MCAL/EEPROM.o
  .comment       0x00000030       0x31 MCAL/EX_Interrupt.o
  .comment       0x00000030       0x31 MCAL/Timers.o
  .comment       0x00000030       0x31 MCAL/UART.o
@@ -918,112 +933,129 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x370
+.debug_aranges  0x00000000      0x3c8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x18 CFG/DIO_Cfg.o
  .debug_aranges
-                0x00000018       0x88 HAl/LCD.o
+                0x00000018       0x28 HAl/KeyPad.o
  .debug_aranges
-                0x000000a0       0x30 HAl/Sensors.o
+                0x00000040       0x88 HAl/LCD.o
  .debug_aranges
-                0x000000d0       0x38 main.o
+                0x000000c8       0x30 HAl/Sensors.o
  .debug_aranges
-                0x00000108       0x50 MCAL/ADC.o
+                0x000000f8       0x40 main.o
  .debug_aranges
-                0x00000158       0x50 MCAL/DIO.o
+                0x00000138       0x50 MCAL/ADC.o
  .debug_aranges
-                0x000001a8       0x58 MCAL/EX_Interrupt.o
+                0x00000188       0x50 MCAL/DIO.o
  .debug_aranges
-                0x00000200       0xe8 MCAL/Timers.o
+                0x000001d8       0x28 MCAL/EEPROM.o
  .debug_aranges
-                0x000002e8       0x88 MCAL/UART.o
+                0x00000200       0x58 MCAL/EX_Interrupt.o
+ .debug_aranges
+                0x00000258       0xe8 MCAL/Timers.o
+ .debug_aranges
+                0x00000340       0x88 MCAL/UART.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2adf
+.debug_info     0x00000000     0x30f9
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_info    0x000004e6      0x17f CFG/DIO_Cfg.o
- .debug_info    0x00000665      0xc67 HAl/LCD.o
- .debug_info    0x000012cc      0x185 HAl/Sensors.o
- .debug_info    0x00001451      0x56f main.o
- .debug_info    0x000019c0      0x2b2 MCAL/ADC.o
- .debug_info    0x00001c72      0x409 MCAL/DIO.o
- .debug_info    0x0000207b      0x272 MCAL/EX_Interrupt.o
- .debug_info    0x000022ed      0x59b MCAL/Timers.o
- .debug_info    0x00002888      0x257 MCAL/UART.o
+ .debug_info    0x00000665      0x362 HAl/KeyPad.o
+ .debug_info    0x000009c7      0xc67 HAl/LCD.o
+ .debug_info    0x0000162e      0x185 HAl/Sensors.o
+ .debug_info    0x000017b3      0x73a main.o
+ .debug_info    0x00001eed      0x2b2 MCAL/ADC.o
+ .debug_info    0x0000219f      0x409 MCAL/DIO.o
+ .debug_info    0x000025a8       0xed MCAL/EEPROM.o
+ .debug_info    0x00002695      0x272 MCAL/EX_Interrupt.o
+ .debug_info    0x00002907      0x59b MCAL/Timers.o
+ .debug_info    0x00002ea2      0x257 MCAL/UART.o
 
-.debug_abbrev   0x00000000      0xe18
+.debug_abbrev   0x00000000     0x102b
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_abbrev  0x000004a3       0x6a CFG/DIO_Cfg.o
- .debug_abbrev  0x0000050d      0x1be HAl/LCD.o
- .debug_abbrev  0x000006cb       0xd2 HAl/Sensors.o
- .debug_abbrev  0x0000079d       0xff main.o
- .debug_abbrev  0x0000089c      0x10a MCAL/ADC.o
- .debug_abbrev  0x000009a6      0x1c0 MCAL/DIO.o
- .debug_abbrev  0x00000b66       0xe4 MCAL/EX_Interrupt.o
- .debug_abbrev  0x00000c4a       0xd8 MCAL/Timers.o
- .debug_abbrev  0x00000d22       0xf6 MCAL/UART.o
+ .debug_abbrev  0x0000050d      0x174 HAl/KeyPad.o
+ .debug_abbrev  0x00000681      0x1be HAl/LCD.o
+ .debug_abbrev  0x0000083f       0xd2 HAl/Sensors.o
+ .debug_abbrev  0x00000911      0x113 main.o
+ .debug_abbrev  0x00000a24      0x10a MCAL/ADC.o
+ .debug_abbrev  0x00000b2e      0x1c0 MCAL/DIO.o
+ .debug_abbrev  0x00000cee       0x8b MCAL/EEPROM.o
+ .debug_abbrev  0x00000d79       0xe4 MCAL/EX_Interrupt.o
+ .debug_abbrev  0x00000e5d       0xd8 MCAL/Timers.o
+ .debug_abbrev  0x00000f35       0xf6 MCAL/UART.o
 
-.debug_line     0x00000000     0x1753
+.debug_line     0x00000000     0x1aad
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_line    0x00000116       0x48 CFG/DIO_Cfg.o
- .debug_line    0x0000015e      0x504 HAl/LCD.o
- .debug_line    0x00000662       0xb4 HAl/Sensors.o
- .debug_line    0x00000716      0x1db main.o
- .debug_line    0x000008f1      0x1af MCAL/ADC.o
- .debug_line    0x00000aa0      0x412 MCAL/DIO.o
- .debug_line    0x00000eb2      0x24e MCAL/EX_Interrupt.o
- .debug_line    0x00001100      0x47e MCAL/Timers.o
- .debug_line    0x0000157e      0x1d5 MCAL/UART.o
+ .debug_line    0x0000015e      0x205 HAl/KeyPad.o
+ .debug_line    0x00000363      0x504 HAl/LCD.o
+ .debug_line    0x00000867       0xb4 HAl/Sensors.o
+ .debug_line    0x0000091b      0x28f main.o
+ .debug_line    0x00000baa      0x1af MCAL/ADC.o
+ .debug_line    0x00000d59      0x412 MCAL/DIO.o
+ .debug_line    0x0000116b       0xa1 MCAL/EEPROM.o
+ .debug_line    0x0000120c      0x24e MCAL/EX_Interrupt.o
+ .debug_line    0x0000145a      0x47e MCAL/Timers.o
+ .debug_line    0x000018d8      0x1d5 MCAL/UART.o
 
-.debug_frame    0x00000000      0x8f4
+.debug_frame    0x00000000      0x990
  *(.debug_frame)
- .debug_frame   0x00000000      0x188 HAl/LCD.o
- .debug_frame   0x00000188       0x44 HAl/Sensors.o
- .debug_frame   0x000001cc       0x54 main.o
- .debug_frame   0x00000220       0x84 MCAL/ADC.o
- .debug_frame   0x000002a4       0x8c MCAL/DIO.o
- .debug_frame   0x00000330      0x16c MCAL/EX_Interrupt.o
- .debug_frame   0x0000049c      0x2d4 MCAL/Timers.o
- .debug_frame   0x00000770      0x184 MCAL/UART.o
+ .debug_frame   0x00000000       0x58 HAl/KeyPad.o
+ .debug_frame   0x00000058      0x188 HAl/LCD.o
+ .debug_frame   0x000001e0       0x44 HAl/Sensors.o
+ .debug_frame   0x00000224       0x64 main.o
+ .debug_frame   0x00000288       0x84 MCAL/ADC.o
+ .debug_frame   0x0000030c       0x8c MCAL/DIO.o
+ .debug_frame   0x00000398       0x34 MCAL/EEPROM.o
+ .debug_frame   0x000003cc      0x16c MCAL/EX_Interrupt.o
+ .debug_frame   0x00000538      0x2d4 MCAL/Timers.o
+ .debug_frame   0x0000080c      0x184 MCAL/UART.o
 
-.debug_str      0x00000000      0xf9a
+.debug_str      0x00000000     0x1013
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_str     0x00000196      0x21c CFG/DIO_Cfg.o
                                 0x248 (size before relaxing)
- .debug_str     0x000003b2      0x16c HAl/LCD.o
+ .debug_str     0x000003b2       0xc0 HAl/KeyPad.o
+                                0x2ca (size before relaxing)
+ .debug_str     0x00000472       0xea HAl/LCD.o
                                 0x37b (size before relaxing)
- .debug_str     0x0000051e       0x78 HAl/Sensors.o
+ .debug_str     0x0000055c       0x78 HAl/Sensors.o
                                 0x1a6 (size before relaxing)
- .debug_str     0x00000596      0x112 main.o
-                                0x3c5 (size before relaxing)
- .debug_str     0x000006a8       0xa8 MCAL/ADC.o
+ .debug_str     0x000005d4      0x28f main.o
+                                0x514 (size before relaxing)
+ .debug_str     0x00000863       0xa8 MCAL/ADC.o
                                 0x2cd (size before relaxing)
- .debug_str     0x00000750       0x92 MCAL/DIO.o
+ .debug_str     0x0000090b       0x78 MCAL/DIO.o
                                 0x320 (size before relaxing)
- .debug_str     0x000007e2       0xe1 MCAL/EX_Interrupt.o
+ .debug_str     0x00000983       0x22 MCAL/EEPROM.o
+                                0x196 (size before relaxing)
+ .debug_str     0x000009a5       0xe1 MCAL/EX_Interrupt.o
                                 0x27d (size before relaxing)
- .debug_str     0x000008c3      0x5b2 MCAL/Timers.o
+ .debug_str     0x00000a86      0x472 MCAL/Timers.o
                                 0x728 (size before relaxing)
- .debug_str     0x00000e75      0x125 MCAL/UART.o
+ .debug_str     0x00000ef8      0x11b MCAL/UART.o
                                 0x295 (size before relaxing)
 
-.debug_loc      0x00000000     0x2020
+.debug_loc      0x00000000     0x21e0
  *(.debug_loc)
- .debug_loc     0x00000000      0x99f HAl/LCD.o
- .debug_loc     0x0000099f       0x67 HAl/Sensors.o
- .debug_loc     0x00000a06       0x28 main.o
- .debug_loc     0x00000a2e      0x142 MCAL/ADC.o
- .debug_loc     0x00000b70      0x8f3 MCAL/DIO.o
- .debug_loc     0x00001463      0x422 MCAL/EX_Interrupt.o
- .debug_loc     0x00001885      0x5dd MCAL/Timers.o
- .debug_loc     0x00001e62      0x1be MCAL/UART.o
+ .debug_loc     0x00000000      0x190 HAl/KeyPad.o
+ .debug_loc     0x00000190      0x99f HAl/LCD.o
+ .debug_loc     0x00000b2f       0x67 HAl/Sensors.o
+ .debug_loc     0x00000b96      0x142 MCAL/ADC.o
+ .debug_loc     0x00000cd8      0x8f3 MCAL/DIO.o
+ .debug_loc     0x000015cb       0x58 MCAL/EEPROM.o
+ .debug_loc     0x00001623      0x422 MCAL/EX_Interrupt.o
+ .debug_loc     0x00001a45      0x5dd MCAL/Timers.o
+ .debug_loc     0x00002022      0x1be MCAL/UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1043,16 +1075,18 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x2d8
+.debug_ranges   0x00000000      0x310
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x78 HAl/LCD.o
- .debug_ranges  0x00000078       0x20 HAl/Sensors.o
- .debug_ranges  0x00000098       0x28 main.o
- .debug_ranges  0x000000c0       0x40 MCAL/ADC.o
- .debug_ranges  0x00000100       0x40 MCAL/DIO.o
- .debug_ranges  0x00000140       0x48 MCAL/EX_Interrupt.o
- .debug_ranges  0x00000188       0xd8 MCAL/Timers.o
- .debug_ranges  0x00000260       0x78 MCAL/UART.o
+ .debug_ranges  0x00000000       0x18 HAl/KeyPad.o
+ .debug_ranges  0x00000018       0x78 HAl/LCD.o
+ .debug_ranges  0x00000090       0x20 HAl/Sensors.o
+ .debug_ranges  0x000000b0       0x30 main.o
+ .debug_ranges  0x000000e0       0x40 MCAL/ADC.o
+ .debug_ranges  0x00000120       0x40 MCAL/DIO.o
+ .debug_ranges  0x00000160       0x18 MCAL/EEPROM.o
+ .debug_ranges  0x00000178       0x48 MCAL/EX_Interrupt.o
+ .debug_ranges  0x000001c0       0xd8 MCAL/Timers.o
+ .debug_ranges  0x00000298       0x78 MCAL/UART.o
 
 .debug_macro
  *(.debug_macro)

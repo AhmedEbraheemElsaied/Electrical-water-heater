@@ -51,6 +51,7 @@ C_SRCS +=  \
 ../main.c \
 ../MCAL/ADC.c \
 ../MCAL/DIO.c \
+../MCAL/EEPROM.c \
 ../MCAL/EX_Interrupt.c \
 ../MCAL/SPI.c \
 ../MCAL/Timers.c \
@@ -75,6 +76,7 @@ HAl/Sensors.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
+MCAL/EEPROM.o \
 MCAL/EX_Interrupt.o \
 MCAL/SPI.o \
 MCAL/Timers.o \
@@ -92,6 +94,7 @@ HAl/Sensors.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
+MCAL/EEPROM.o \
 MCAL/EX_Interrupt.o \
 MCAL/SPI.o \
 MCAL/Timers.o \
@@ -109,6 +112,7 @@ HAl/Sensors.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
+MCAL/EEPROM.d \
 MCAL/EX_Interrupt.d \
 MCAL/SPI.d \
 MCAL/Timers.d \
@@ -126,6 +130,7 @@ HAl/Sensors.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
+MCAL/EEPROM.d \
 MCAL/EX_Interrupt.d \
 MCAL/SPI.d \
 MCAL/Timers.d \
@@ -204,6 +209,13 @@ MCAL/ADC.o: ../MCAL/ADC.c
 	
 
 MCAL/DIO.o: ../MCAL/DIO.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"../APP" -I"../CFG" -I"../HAl" -I"../MCAL" -I"../SERVICES" -I".."  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/EEPROM.o: ../MCAL/EEPROM.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include" -I"../APP" -I"../CFG" -I"../HAl" -I"../MCAL" -I"../SERVICES" -I".."  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

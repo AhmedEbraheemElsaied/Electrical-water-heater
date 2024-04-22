@@ -20,6 +20,8 @@ MCAL\ADC.c
 
 MCAL\DIO.c
 
+MCAL\EEPROM.c
+
 MCAL\EX_Interrupt.c
 
 MCAL\SPI.c

@@ -106,7 +106,10 @@ int main(void)
 		EXI_SetCallBack(EX_INT1,decrease_Temp);
 		EXI_SetCallBack(EX_INT2,ON_OFF);
 		
-	
+	if (flag%2!=0){
+		LCD_Clear();
+	}
+	else{
 		LCD_GoTo(0,0);
 		LCD_WriteString("Desired Temp");
 		LCD_GoTo(0,12);
@@ -115,18 +118,21 @@ int main(void)
 		LCD_WriteString("Real Temp");
 		LCD_GoTo(1,11);
 		LCD_WriteNumber(temp);
-		if(temp<desired_temp && flag%2==0){
+	}
+		
+		if(temp<desired_temp-5 && flag%2==0){
 			DIO_WritePin(HEATING,HIGH);
 			
 		}
-		else{
+		else if (temp>desired_temp+5 || flag%2!=0){
 			DIO_WritePin(HEATING,LOW);
 		}
-		if(temp>desired_temp && flag%2==0){
+		
+		if(temp>desired_temp+5 && flag%2==0){
 			DIO_WritePin(COOLING,HIGH);
 			
 		}
-		else{
+		 else if  (temp<desired_temp-5 || flag%2!=0){
 			DIO_WritePin(COOLING,LOW);
 		}
 		

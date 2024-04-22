@@ -44,8 +44,6 @@ Discarded input sections
  .text          0x00000000        0x0 HAl/LCD.o
  .data          0x00000000        0x0 HAl/LCD.o
  .bss           0x00000000        0x0 HAl/LCD.o
- .text.LCD_Clear
-                0x00000000       0x14 HAl/LCD.o
  .text.LCD_WriteChar
                 0x00000000        0x4 HAl/LCD.o
  .text.LCD_Write_4D
@@ -528,7 +526,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xe44
+.text           0x00000000      0xea6
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -615,124 +613,127 @@ END GROUP
  .text.LCD_GoTo
                 0x00000264       0x16 HAl/LCD.o
                 0x00000264                LCD_GoTo
+ .text.LCD_Clear
+                0x0000027a       0x14 HAl/LCD.o
+                0x0000027a                LCD_Clear
  .text.LCD_WriteString
-                0x0000027a       0x26 HAl/LCD.o
-                0x0000027a                LCD_WriteString
+                0x0000028e       0x26 HAl/LCD.o
+                0x0000028e                LCD_WriteString
  .text.LCD_WriteNumber
-                0x000002a0      0x108 HAl/LCD.o
-                0x000002a0                LCD_WriteNumber
+                0x000002b4      0x108 HAl/LCD.o
+                0x000002b4                LCD_WriteNumber
  .text.TEMP_Read
-                0x000003a8       0x12 HAl/Sensors.o
-                0x000003a8                TEMP_Read
- .text.ON_OFF   0x000003ba        0xc main.o
-                0x000003ba                ON_OFF
+                0x000003bc       0x12 HAl/Sensors.o
+                0x000003bc                TEMP_Read
+ .text.ON_OFF   0x000003ce        0xc main.o
+                0x000003ce                ON_OFF
  .text.Increase_Temp
-                0x000003c6       0x26 main.o
-                0x000003c6                Increase_Temp
+                0x000003da       0x26 main.o
+                0x000003da                Increase_Temp
  .text.decrease_Temp
-                0x000003ec       0x26 main.o
-                0x000003ec                decrease_Temp
+                0x00000400       0x26 main.o
+                0x00000400                decrease_Temp
  .text.Sensor_Read
-                0x00000412       0x2e main.o
-                0x00000412                Sensor_Read
+                0x00000426       0x2e main.o
+                0x00000426                Sensor_Read
  .text.startup.main
-                0x00000440      0x12e main.o
-                0x00000440                main
+                0x00000454      0x17c main.o
+                0x00000454                main
  .text.ADC_Init
-                0x0000056e       0x2a MCAL/ADC.o
-                0x0000056e                ADC_Init
+                0x000005d0       0x2a MCAL/ADC.o
+                0x000005d0                ADC_Init
  .text.ADC_Read
-                0x00000598       0x18 MCAL/ADC.o
-                0x00000598                ADC_Read
+                0x000005fa       0x18 MCAL/ADC.o
+                0x000005fa                ADC_Read
  .text.ADC_VoltRead
-                0x000005b0       0x1e MCAL/ADC.o
-                0x000005b0                ADC_VoltRead
+                0x00000612       0x1e MCAL/ADC.o
+                0x00000612                ADC_VoltRead
  .text.DIO_Init
-                0x000005ce      0x1bc MCAL/DIO.o
-                0x000005ce                DIO_Init
+                0x00000630      0x1bc MCAL/DIO.o
+                0x00000630                DIO_Init
  .text.DIO_WritePin
-                0x0000078a       0xfe MCAL/DIO.o
-                0x0000078a                DIO_WritePin
+                0x000007ec       0xfe MCAL/DIO.o
+                0x000007ec                DIO_WritePin
  .text.DIO_TogglePin
-                0x00000888       0x6a MCAL/DIO.o
-                0x00000888                DIO_TogglePin
+                0x000008ea       0x6a MCAL/DIO.o
+                0x000008ea                DIO_TogglePin
  .text.EEPROM_write
-                0x000008f2       0x10 MCAL/EEPROM.o
-                0x000008f2                EEPROM_write
+                0x00000954       0x10 MCAL/EEPROM.o
+                0x00000954                EEPROM_write
  .text.EEPROM_read
-                0x00000902        0xe MCAL/EEPROM.o
-                0x00000902                EEPROM_read
+                0x00000964        0xe MCAL/EEPROM.o
+                0x00000964                EEPROM_read
  .text.EXI_Enable
-                0x00000910       0x20 MCAL/EX_Interrupt.o
-                0x00000910                EXI_Enable
+                0x00000972       0x20 MCAL/EX_Interrupt.o
+                0x00000972                EXI_Enable
  .text.EXI_TriggerEdge
-                0x00000930       0x8c MCAL/EX_Interrupt.o
-                0x00000930                EXI_TriggerEdge
+                0x00000992       0x8c MCAL/EX_Interrupt.o
+                0x00000992                EXI_TriggerEdge
  .text.EXI_Init
-                0x000009bc       0x18 MCAL/EX_Interrupt.o
-                0x000009bc                EXI_Init
+                0x00000a1e       0x18 MCAL/EX_Interrupt.o
+                0x00000a1e                EXI_Init
  .text.EXI_SetCallBack
-                0x000009d4       0x2a MCAL/EX_Interrupt.o
-                0x000009d4                EXI_SetCallBack
+                0x00000a36       0x2a MCAL/EX_Interrupt.o
+                0x00000a36                EXI_SetCallBack
  .text.__vector_1
-                0x000009fe       0x52 MCAL/EX_Interrupt.o
-                0x000009fe                __vector_1
+                0x00000a60       0x52 MCAL/EX_Interrupt.o
+                0x00000a60                __vector_1
  .text.__vector_2
-                0x00000a50       0x54 MCAL/EX_Interrupt.o
-                0x00000a50                __vector_2
+                0x00000ab2       0x54 MCAL/EX_Interrupt.o
+                0x00000ab2                __vector_2
  .text.__vector_3
-                0x00000aa4       0x52 MCAL/EX_Interrupt.o
-                0x00000aa4                __vector_3
+                0x00000b06       0x52 MCAL/EX_Interrupt.o
+                0x00000b06                __vector_3
  .text.Timer1_Init
-                0x00000af6       0x78 MCAL/Timers.o
-                0x00000af6                Timer1_Init
+                0x00000b58       0x78 MCAL/Timers.o
+                0x00000b58                Timer1_Init
  .text.Timer1_OVF_InterruptEnable
-                0x00000b6e        0x8 MCAL/Timers.o
-                0x00000b6e                Timer1_OVF_InterruptEnable
+                0x00000bd0        0x8 MCAL/Timers.o
+                0x00000bd0                Timer1_OVF_InterruptEnable
  .text.Timer1_OVF_SetCallBack
-                0x00000b76        0xa MCAL/Timers.o
-                0x00000b76                Timer1_OVF_SetCallBack
+                0x00000bd8        0xa MCAL/Timers.o
+                0x00000bd8                Timer1_OVF_SetCallBack
  .text.__vector_9
-                0x00000b80       0x52 MCAL/Timers.o
-                0x00000b80                __vector_9
+                0x00000be2       0x52 MCAL/Timers.o
+                0x00000be2                __vector_9
  .text.__vector_7
-                0x00000bd2       0x52 MCAL/Timers.o
-                0x00000bd2                __vector_7
+                0x00000c34       0x52 MCAL/Timers.o
+                0x00000c34                __vector_7
  .text.__vector_8
-                0x00000c24       0x52 MCAL/Timers.o
-                0x00000c24                __vector_8
+                0x00000c86       0x52 MCAL/Timers.o
+                0x00000c86                __vector_8
  .text.__vector_6
-                0x00000c76       0x52 MCAL/Timers.o
-                0x00000c76                __vector_6
+                0x00000cd8       0x52 MCAL/Timers.o
+                0x00000cd8                __vector_6
  .text.UART_Init
-                0x00000cc8        0xc MCAL/UART.o
-                0x00000cc8                UART_Init
+                0x00000d2a        0xc MCAL/UART.o
+                0x00000d2a                UART_Init
  .text.__vector_13
-                0x00000cd4       0x52 MCAL/UART.o
-                0x00000cd4                __vector_13
+                0x00000d36       0x52 MCAL/UART.o
+                0x00000d36                __vector_13
  .text.__vector_15
-                0x00000d26       0x52 MCAL/UART.o
-                0x00000d26                __vector_15
+                0x00000d88       0x52 MCAL/UART.o
+                0x00000d88                __vector_15
  .text.libgcc.div
-                0x00000d78       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000d78                __udivmodhi4
+                0x00000dda       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000dda                __udivmodhi4
  .text.libgcc.div
-                0x00000da0       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000da0                __udivmodsi4
+                0x00000e02       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000e02                __udivmodsi4
  .text.libgcc.div
-                0x00000de4       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
-                0x00000de4                __divmodsi4
+                0x00000e46       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
+                0x00000e46                __divmodsi4
  .text.libgcc.div
-                0x00000e12       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
-                0x00000e12                __negsi2
+                0x00000e74       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
+                0x00000e74                __negsi2
  .text.libgcc.mul
-                0x00000e22       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x00000e22                __umulhisi3
-                0x00000e40                . = ALIGN (0x2)
+                0x00000e84       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000e84                __umulhisi3
+                0x00000ea2                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000e40        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000e40                _exit
-                0x00000e40                exit
+ .fini9         0x00000ea2        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000ea2                _exit
+                0x00000ea2                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -751,11 +752,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000e40        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000ea2        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000e44                _etext = .
+                0x00000ea6                _etext = .
 
-.data           0x00800060       0x3a load address 0x00000e44
+.data           0x00800060       0x3a load address 0x00000ea6
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -805,8 +806,8 @@ END GROUP
                 0x008000ad        0x2 MCAL/UART.o
  *(COMMON)
                 0x008000af                PROVIDE (__bss_end, .)
-                0x00000e44                __data_load_start = LOADADDR (.data)
-                0x00000e7e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000ea6                __data_load_start = LOADADDR (.data)
+                0x00000ee0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000af        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
